@@ -1,0 +1,37 @@
+{
+  "catalogue": [
+    {
+      "id": "blackbird",
+      "name": "黑鸟股票",
+      "blog": [
+        { "title": "BlackBird简介", "id": "introduction" }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "程序设计",
+      "blog": [
+        { "title": "C++模板",       "id": "cpp-template" },
+        { "title": "C++多线程",     "id": "cpp-multithread" },
+        { "title": "排序算法",      "id": "sort" },
+        { "title": "二分查找",      "id": "binary_search" },
+        { "title": "KMP算法",       "id": "kmp" },
+        { "title": "X86汇编",       "id": "x86_assembly" },
+        { "title": "编译优化",      "id": "optimization" }
+      ]
+    },
+    {
+      "id": "system-tools",
+      "name": "系统工具",
+      "blog": [
+        { "title": "Vim",               "id": "vim" },
+        { "title": "Awk",               "id": "awk" },
+        { "title": "Sed",               "id": "sed" },
+        { "title": "Tmux",              "id": "tmux" },
+        { "title": "Bash",              "id": "bash" },
+        { "title": "Git",               "id": "git" },
+        { "title": "Zsh",               "id": "zsh" }
+      ]
+    }
+  ]
+}

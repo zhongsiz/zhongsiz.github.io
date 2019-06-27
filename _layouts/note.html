@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link href="../../css/blog.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/colorful.css" rel="stylesheet">
+    <title>{{ page.title }}</title>
+    <script type="text/javascript" src="../../plugins/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../plugins/i5ting_ztree_toc/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="../../plugins/i5ting_ztree_toc/ztree_toc.js"></script>
+    <link rel="stylesheet" href="../../plugins/i5ting_ztree_toc/zTreeStyle.css" type="text/css">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#tree').ztree_toc({
+          _header_nodes: [{ id:1, pId:0, name:"目录",open:true}],
+          is_expand_all: false,
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      function HideCate(){
+        if(window.parent.blog.cols == "*,310") {
+          window.parent.blog.cols = "*,0";
+          document.getElementById("catabtn").value="显示右栏";
+        } else {
+          window.parent.blog.cols = "*,310";
+          document.getElementById("catabtn").value="隐藏右栏";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <table border=0 height=600px align=left>
+      <tr>
+        <td width=260px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
+          <ul id="tree" class="ztree">
+          </ul>
+        </td>
+        <td align=left valign=top>
+          <div id="content">
+            <p>
+            <h1 class="title">{{ page.title }}</h1>
+            <div class="subtitle">{{ page.subtitle }}
+              <input type="button" id="catabtn" onclick="HideCate()" style="color:#aaa;border-radius: 20px" value="隐藏右栏"/>
+            </div>
+            </p>
+            {{ content | replace: '<li>[ ]', '<li><input type="checkbox" disabled>' | replace: '<li>[x]', '<li><input type="checkbox" disabled checked>' }}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

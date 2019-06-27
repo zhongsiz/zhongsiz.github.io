@@ -1,0 +1,85 @@
+a { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:link { text-decoration:none; color:#00A; }
+a:hover { text-decoration:underline; color:#00F; }
+a:active { text-decoration:overline; color:#F00; }
+
+.title {
+  color: #CD0021;
+  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 30px;
+}
+.subtitle {
+  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.intro {
+  color: #0099cc;
+  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.intro-name { font-size: 28px; }
+.intro-job { font-size: 18px; }
+
+.cata1 {
+  color: #CD0021;
+  font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
+  text-rendering: optimizeLegibility;
+  font-size: 20px;
+  height: 30px;
+}
+.cata1 a { color:#CD0021; }
+.cata1 a:visited { color:#CD0021; }
+.cata1 a:hover { text-decoration:none; }
+
+.cata2 {
+  font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 20px;
+  text-align: justify;
+  word-wrap: break-word;
+  font-family: sans-serif;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font: bold "Segeo UI Mono", "Microsoft YaHei", sans-serif;
+  color: black;
+}
+
+/* 下划线 */
+h2 {
+  padding: 0px 0px 0.3em;
+  border-bottom-style: solid;
+  border-bottom-color: maroon;
+}
+
+code {
+  white-space: pre;
+  display: inline-block;
+  margin: 0;
+  font: 14px/1.8em Consolas, monospace;
+}
+
+/* 整段代码 */
+div.highlighter-rouge {
+  margin: 0 12px;
+  padding: 0px 5px;
+  border-color: rgb(25%,35%,45%);
+  border-left-style:solid;
+}
+
+/* 行内代码 */
+code.highlighter-rouge {
+  background: #eee;
+  padding: 0 0.3em;
+  font-size: 14px;
+}

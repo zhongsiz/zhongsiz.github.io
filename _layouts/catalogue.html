@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="../css/blog.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+      function open_catalogue(cata_id) {
+        if ($('#'+cata_id).is(":hidden")) {
+          $('a.'+cata_id).attr('target', 'main');
+          $('#'+cata_id).show();
+          $('img.'+cata_id).attr('src', '../images/catalogue_open.jpg');
+        } else {
+          $('a.'+cata_id).attr('target', '_self');
+          $('#'+cata_id).hide();
+          $('img.'+cata_id).attr('src', '../images/catalogue_close.jpg');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="intro">
+      <div class="intro-job">Steve@Shanghai</div>
+    </div>
+    {% for catalogue in site.data.blog.catalogue %}
+    <br/>
+    <div class="cata1">
+      <img class="{{ catalogue.id }}" src="../images/catalogue_close.jpg" width="16px" height="16px">&nbsp;
+      <a class="cate1" href="#" onclick="open_catalogue('{{ catalogue.id }}')" class="{{ catalogue.id }}">{{ catalogue.name }}</a>
+    </div>
+    <div id="{{ catalogue.id }}" class="cata2" style="display:none">
+      {% for blog in catalogue.blog %}
+      <div id="{{ blog.id }}" class="cata2">
+        &nbsp;&nbsp;<a href="{{ catalogue.id }}/{{ blog.id }}.html" target="main">{{ blog.title }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </body>
+</html>
