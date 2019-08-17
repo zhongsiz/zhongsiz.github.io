@@ -1,7 +1,7 @@
 ---
 layout: note
 title: Vim
-subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-05-21 20:43:48
+subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-08-17 21:54:42
 ---
 
 ## 参考
@@ -10,8 +10,8 @@ subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-05-21 20:43:48
 ## vim 命令行
 
 ### 打开多个文件
-    + 竖直分割。`-On`
-    + 水平分割。`-on`
++ 竖直分割。`-On`
++ 水平分割。`-on`
 
 ## 移动
 * 上下左右。 `k`, `j`, `h`, `l`, 行内(wrap)`gk`, `gj`
@@ -30,7 +30,7 @@ subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-05-21 20:43:48
 #### 行尾非空。`A`
 
 ### 格式化
-    + `=`: indent
++ `=`: indent
 
 ## 窗口
 * 分割。`sp`, `vs`
@@ -39,16 +39,21 @@ subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-05-21 20:43:48
 
 ## Insert模式
 ### 删除内容
-    * `<C-h>` -- 一个字符
-    * `<C-w>` -- 一个单词
-    * `<C-u>` -- 删除到开始
-### Insert模式到Normal模式
-    * `Esc`
-    * `C-[`
-    * `C-o` -- Insert mode to Insert Normal mode
-### Insert Normal模式
-    * insert mode -> normal mode(run only one command) -> insert mode
+* `<C-h>` -- 一个字符
+* `<C-w>` -- 一个单词
+* `<C-u>` -- 删除到开始
 
+### Insert模式到Normal模式
+* `Esc`
+* `C-[`
+* `C-o` -- Insert mode to Insert Normal mode
+
+### Insert Normal模式
+* insert mode -> normal mode(run only one command) -> insert mode
+
+## 其他设置
+### 编码
+* 显示中文：`set fileencodings=utf-8,gb2312`
 
 ## 寄存器
 #### Tip60 Vim寄存器
