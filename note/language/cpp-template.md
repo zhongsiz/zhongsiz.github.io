@@ -9,21 +9,25 @@ subtitle: 创建时间 2016-05-21 00:00:00, 最后更新 2019-03-30 23:00:23
 ### .template构造
 调用依赖于模板参数对象的模板成员时（显示指定模板参数列表）,需要使用.template构造。
 
-    template <int N>
-    void printBitset(std::bitset<N> const& bs) {
-        std::cout << bs.template to_string<char, std::char_traits<char>,
-                                           std::allocator<char>>();
-    }
+```cpp
+template <int N>
+void printBitset(std::bitset<N> const& bs) {
+    std::cout << bs.template to_string<char, std::char_traits<char>,
+                                       std::allocator<char>>();
+}
+```
 
 ### 模板的模板参数
 * 参数类型只能用class关键字(c++17允许typename)
 * 完全匹配
 * 没用用到的名字可以省略
 
-    template <typename T,
-              template <typename ELEM, typename = std::allocator<ELEM>>
-              class CONT = std::deque>
-    class Stack;
+```cpp
+template <typename T,
+          template <typename ELEM, typename = std::allocator<ELEM>>
+          class CONT = std::deque>
+class Stack;
+```
 
 ### policy类
 实例：累加一个序列

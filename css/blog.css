@@ -1,8 +1,17 @@
+body {
+  margin: 20px;
+  text-align: justify;
+  word-wrap: break-word;
+  font-family: "Segeo UI Mono", "Microsoft YaHei", sans-serif;
+  text-rendering: optimizeLegibility;
+  color: black;
+}
+
 a { text-decoration: none; }
 a:visited { text-decoration: none; }
-a:link { text-decoration:none; color:#00A; }
-a:hover { text-decoration:underline; color:#00F; }
-a:active { text-decoration:overline; color:#F00; }
+a:link { text-decoration:none; }
+a:hover { text-decoration:underline; }
+a:active { text-decoration:none; }
 
 .title {
   color: #CD0021;
@@ -29,23 +38,8 @@ a:active { text-decoration:overline; color:#F00; }
 .cata1 {
   cursor: pointer;
   color: #CD0021;
-  font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
-  text-rendering: optimizeLegibility;
   font-size: 20px;
   height: 30px;
-}
-
-.cata2 {
-  font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  margin: 20px;
-  text-align: justify;
-  word-wrap: break-word;
-  font-family: sans-serif;
-  color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
