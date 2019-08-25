@@ -6,14 +6,15 @@
     <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
     <script type="text/javascript">
       function open_catalogue(cata_id) {
+        var cate_name = $('a.'+cata_id).text();
         if ($('#'+cata_id).is(":hidden")) {
           $('a.'+cata_id).attr('target', 'main');
+          $('a.'+cata_id).text("▼" + cate_name);
           $('#'+cata_id).show();
-          $('img.'+cata_id).attr('src', '../images/catalogue_open.jpg');
         } else {
           $('a.'+cata_id).attr('target', '_self');
+          $('a.'+cata_id).text("►" + cate_name);
           $('#'+cata_id).hide();
-          $('img.'+cata_id).attr('src', '../images/catalogue_close.jpg');
         }
       }
     </script>
@@ -22,7 +23,6 @@
     {% for catalogue in site.data.blog.catalogue %}
     <br/>
     <div class="cata1">
-      <img class="{{ catalogue.id }}" src="../images/catalogue_close.jpg" width="16px" height="16px">&nbsp;
       <a class="cate1" href="#" onclick="open_catalogue('{{ catalogue.id }}')" class="{{ catalogue.id }}">►{{ catalogue.name }}</a>
     </div>
     <div id="{{ catalogue.id }}" class="cata2" style="display:none">
