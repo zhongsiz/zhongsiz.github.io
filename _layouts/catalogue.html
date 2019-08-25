@@ -5,16 +5,14 @@
     <link href="../css/blog.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
     <script type="text/javascript">
-      function open_catalogue(obj, cata_id) {
+      function open_cata(obj) {
         var cata_name = $(obj).text().slice(1);
-        if ($('#'+cata_id).is(":hidden")) {
-          $(obj).attr('target', '_self');
+        if ($(obj).next().is(":hidden")) {
           $(obj).text("▼" + cata_name);
-          $('#'+cata_id).show();
+          $(obj).next().show();
         } else {
-          $(obj).attr('target', '_self');
           $(obj).text("►" + cata_name);
-          $('#'+cata_id).hide();
+          $(obj).next().hide();
         }
       }
     </script>
@@ -22,10 +20,8 @@
   <body>
     {% for catalogue in site.data.blog.catalogue %}
     <br/>
-    <div class="cata1">
-      <a class="cate1" href="#" onclick="open_catalogue(this, '{{ catalogue.id }}')" class="{{ catalogue.id }}">►{{ catalogue.name }}</a>
-    </div>
-    <div id="{{ catalogue.id }}" class="cata2" style="display:none">
+    <div class="cata1" onclick="open_cata(this)">►{{ catalogue.name }}</div>
+    <div class="cata2" style="display:none">
       {% for blog in catalogue.blog %}
       <div id="{{ blog.id }}" class="cata2">
         &nbsp;&nbsp;<a href="{{ catalogue.id }}/{{ blog.id }}.html" target="main">{{ blog.title }}</a>
