@@ -5,6 +5,7 @@
     <link href="../css/blog.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
     <script type="text/javascript">
+      var cate3_id = "blackbird-introduction";
       function open_cata(obj) {
         var cata_name = $(obj).text().slice(1);
         if ($(obj).next().is(":hidden")) {
@@ -15,8 +16,11 @@
           $(obj).next().hide();
         }
       }
-      function open_link(url) {
+      function open_link(url, cid) {
         window.open(url,'main');
+        $('#' + cate3_id).css("background-color", "FFFFFF");
+        $('#' + cid).css("backgroud-color", "#888888");
+        cate3_id = cid;
       }
     </script>
   </head>
@@ -26,7 +30,7 @@
     <div class="cata1" onclick="open_cata(this)">►{{ catalogue.name }}</div>
     <div class="cata2" style="display:none">
       {% for blog in catalogue.blog %}
-      <div class="cata2" onclick="open_link('{{ catalogue.id }}/{{ blog.id }}.html')">&nbsp;&nbsp;{{ blog.title }}</div>
+      <div class="cata3" onclick="open_link('{{ catalogue.id }}/{{ blog.id }}.html', '{{ blog.id }}')">&nbsp;&nbsp;{{ blog.title }}</div>
       {% endfor %}
     </div>
     {% endfor %}
