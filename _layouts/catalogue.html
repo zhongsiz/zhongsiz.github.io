@@ -19,14 +19,11 @@
     </script>
   </head>
   <body>
-    <div class="intro">
-      <div class="intro-job">Steve@Shanghai,China</div>
-    </div>
     {% for catalogue in site.data.blog.catalogue %}
     <br/>
     <div class="cata1">
       <img class="{{ catalogue.id }}" src="../images/catalogue_close.jpg" width="16px" height="16px">&nbsp;
-      <a class="cate1" href="#" onclick="open_catalogue('{{ catalogue.id }}')" class="{{ catalogue.id }}">{{ catalogue.name }}</a>
+      <a class="cate1" href="#" onclick="open_catalogue('{{ catalogue.id }}')" class="{{ catalogue.id }}">►{{ catalogue.name }}</a>
     </div>
     <div id="{{ catalogue.id }}" class="cata2" style="display:none">
       {% for blog in catalogue.blog %}
