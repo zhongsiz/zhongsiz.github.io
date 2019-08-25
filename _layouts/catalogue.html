@@ -8,7 +8,7 @@
       function open_catalogue(obj, cata_id) {
         var cata_name = $(obj).text().slice(1);
         if ($('#'+cata_id).is(":hidden")) {
-          $(obj).attr('target', 'main');
+          $(obj).attr('target', '_self');
           $(obj).text("▼" + cata_name);
           $('#'+cata_id).show();
         } else {
