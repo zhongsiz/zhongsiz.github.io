@@ -5,7 +5,7 @@
     <link href="../css/blog.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
     <script type="text/javascript">
-      var cate3_id = "blackbird-introduction";
+      var cate2_id = "blackbird-introduction";
       function open_cata(obj) {
         var cata_name = $(obj).text().slice(1);
         if ($(obj).next().is(":hidden")) {
@@ -18,12 +18,13 @@
       }
       function open_link(url, cid) {
         window.open(url,'main');
-        $('#' + cate3_id).css("background-color", "FFFFFF");
+        alert(cate2_id);
+        $('#' + cate2_id).css("background-color", "FFFFFF");
         $('#' + cid).css("background-color", "#888888");
-        cate3_id = cid;
+        cate2_id = cid;
       }
       $(function() {
-        $('#' + cate3_id).css("background-color", "#888888");
+        $('#' + cate2_id).css("background-color", "#888888");
       });
     </script>
   </head>
