@@ -64,7 +64,7 @@ div.highlighter-rouge {
 /* 行内代码 */
 code.highlighter-rouge {
   vertical-align: middle;
-  background: #888888;
+  background: #cccccc;
   padding: 0 0.3em;
   font-size: 14px;
   border-radius: 5px;

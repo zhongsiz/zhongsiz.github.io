@@ -29,13 +29,13 @@
   </head>
   <body>
     {% for catalogue in site.data.blog.catalogue %}
-    <br/>
     <div class="cata1" onclick="open_cata(this)">►{{ catalogue.name }}</div>
     <div style="display:none">
       {% for blog in catalogue.blog %}
       <div id="{{ blog.id }}" class="cata2" onclick="open_link('{{ catalogue.id }}/{{ blog.id }}.html', '{{ blog.id }}')">&nbsp;&nbsp;{{ blog.title }}</div>
       {% endfor %}
     </div>
+    <br/>
     {% endfor %}
   </body>
 </html>
