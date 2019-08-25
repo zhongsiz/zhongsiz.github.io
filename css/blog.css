@@ -33,10 +33,6 @@ a:active { text-decoration:none; }
   color: #0000FF;
 }
 
-input.button {
-  outline:none;
-}
-
 /* 下划线 */
 /*
 h2 {
@@ -64,7 +60,7 @@ div.highlighter-rouge {
 /* 行内代码 */
 code.highlighter-rouge {
   vertical-align: middle;
-  background: #cccccc;
+  background: #dddddd;
   padding: 0 0.3em;
   font-size: 14px;
   border-radius: 5px;

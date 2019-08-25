@@ -37,12 +37,11 @@
         </td>
         <td align=left valign=top>
           <div id="content">
-            <p>
-            <h1 class="title">{{ page.title }}</h1>
+            <div class="title">{{ page.title }}</div>
             <div class="subtitle">{{ page.subtitle }}
-              <input type="button" id="catabtn" onclick="HideCate()" style="color:#aaa;border-radius: 20px" value="隐藏右栏"/>
+              <input type="button" id="catabtn" onclick="HideCate()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏右栏"/>
             </div>
-            </p>
+            <hr>
             {{ content | replace: '<li>[ ]', '<li><input type="checkbox" disabled>' | replace: '<li>[x]', '<li><input type="checkbox" disabled checked>' }}
           </div>
         </td>
