@@ -43,11 +43,13 @@ KMP算法预先计算这些位移信息(下表)，匹配时候**节省无效位�
     1. 如果 \\((P[k] == P[j + 1])\\)，即\\(P[0...j + 1] = p[k - 1 - j...k]\\)，也就是\\(suffix[k] = suffix[k - 1] + 1 = j + 1\\)。
     2. 否则做如下处理：
 
+        ```cpp
         pre = j;
         do {
             pre = suffix[pre];
         } while (pre > 0 && P[pre + 1] != P[k])
         suffix[i] = pre + 1;
+        ```
 
 <a name="suffix">解释如下</a>：
 
@@ -58,17 +60,19 @@ KMP算法预先计算这些位移信息(下表)，匹配时候**节省无效位�
 
 综上所述，实现代码如下：
 
-    void getSuffix() {
-        suffix[0] = -1;
-        for (int i = 1; i < m; ++i) {
-            int pre = suffix[i - 1];
-            while (pre >= 0 && P[pre + 1] != P[i]) {
-                pre = suffix[pre];
-            }
-            if (P[pre + 1] == P[i]) suffix[i] = pre + 1;
-            else suffix[i] = -1;
+```cpp
+void getSuffix() {
+    suffix[0] = -1;
+    for (int i = 1; i < m; ++i) {
+        int pre = suffix[i - 1];
+        while (pre >= 0 && P[pre + 1] != P[i]) {
+            pre = suffix[pre];
         }
+        if (P[pre + 1] == P[i]) suffix[i] = pre + 1;
+        else suffix[i] = -1;
     }
+}
+```
 
 ### 2.2 匹配主程序
 
@@ -76,20 +80,22 @@ KMP算法预先计算这些位移信息(下表)，匹配时候**节省无效位�
 2. 如果模式下标为0，即第一个字符就不匹配，文本下标移动
 3. 其他情况根据后缀函数匹配为匹配的字符
 
-    int KMP() {
-        int tidx, pidx;
-        for(tidx = 0, pidx = 0; tidx < n && pidx < m; ) {
-            if (T[tidx] == P[pidx]) {
-                ++tidx, ++pidx;
-            } else if (pidx == 0) {
-                ++tidx;
-            } else {
-                pidx = suffix[pidx - 1] + 1;
-            }
+```cpp
+int KMP() {
+    int tidx, pidx;
+    for(tidx = 0, pidx = 0; tidx < n && pidx < m; ) {
+        if (T[tidx] == P[pidx]) {
+            ++tidx, ++pidx;
+        } else if (pidx == 0) {
+            ++tidx;
+        } else {
+            pidx = suffix[pidx - 1] + 1;
         }
-        if (pidx == m) return tidx - m + 1;
-        else return -1;
     }
+    if (pidx == m) return tidx - m + 1;
+    else return -1;
+}
+```
 
 ## 三、next数组实现方式
 next数组表示当前字符匹配失败时需要回溯的位置：**next[j]表示P[0...j-1]中前缀和后缀相等的最大长度**。
@@ -103,31 +109,35 @@ next数组表示当前字符匹配失败时需要回溯的位置：**next[j]表�
 
 **next数组求法如下，原理类似[求解后缀函数](#suffix)**：
 
-    void getNext() {
-        next[0] = -1, next[1] = 0;
-        int i = 1, j = 0;
-        while(i < m) {
-            if(j == -1 || P[j] == P[i]) {
-                ++i, ++j;
-                next[i] = j;
-            }
-            else j = next[j];
+```cpp
+void getNext() {
+    next[0] = -1, next[1] = 0;
+    int i = 1, j = 0;
+    while(i < m) {
+        if(j == -1 || P[j] == P[i]) {
+            ++i, ++j;
+            next[i] = j;
         }
+        else j = next[j];
     }
+}
+```
 
 **匹配过程**
 
-    int KMP() {
-        int i = 0, j = 0;
-        while(i < n && j != m) {
-            if(j == -1 || T[i] == P[j]) {
-                ++i;++j;
-            }
-            else j = next[j];
+```cpp
+int KMP() {
+    int i = 0, j = 0;
+    while(i < n && j != m) {
+        if(j == -1 || T[i] == P[j]) {
+            ++i;++j;
         }
-        if(j == m) return i - m + 1;
-        else return -1;
+        else j = next[j];
     }
+    if(j == m) return i - m + 1;
+    else return -1;
+}
+```
 
 ## 其他
 OJ题目：

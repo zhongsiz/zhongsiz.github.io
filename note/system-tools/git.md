@@ -1,6 +1,6 @@
 ---
 layout: note
-title: Tmux
+title: Git
 subtitle: 创建时间 2019-05-27 16:23:54, 最后更新 2019-05-27 18:20:32
 ---
 

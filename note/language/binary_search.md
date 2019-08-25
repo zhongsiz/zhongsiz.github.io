@@ -14,8 +14,10 @@ subtitle: 创建时间 2017-03-18 09:48:49, 最后更新 2019-03-30 21:43:13
 
 1. `binary_search`: 查找目标元素
 
+        ```cpp
         template<class ForwardIt, class T>
         bool binary_search(ForwardIt first, ForwardIt last, const T& value);
+        ```
 2. 查找边界
     1. `lower_bound`: 查找区间$$[first, last)$$中第一个不小于value的元素位置
 

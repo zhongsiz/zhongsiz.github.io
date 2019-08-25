@@ -15,25 +15,12 @@ a:active { text-decoration:none; }
 
 .title {
   color: #CD0021;
-  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
-  text-rendering: optimizeLegibility;
   font-size: 30px;
 }
 .subtitle {
-  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
-  text-rendering: optimizeLegibility;
   font-size: 14px;
   color: #aaa;
 }
-
-.intro {
-  color: #0099cc;
-  font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
-  text-rendering: optimizeLegibility;
-}
-
-.intro-name { font-size: 28px; }
-.intro-job { font-size: 18px; }
 
 .cata1 {
   cursor: pointer;
@@ -46,9 +33,8 @@ a:active { text-decoration:none; }
   color: #0000FF;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font: bold "Segeo UI Mono", "Microsoft YaHei", sans-serif;
-  color: black;
+input.button {
+  outline:none;
 }
 
 /* 下划线 */
@@ -77,7 +63,9 @@ div.highlighter-rouge {
 
 /* 行内代码 */
 code.highlighter-rouge {
-  background: #eee;
+  vertical-align: middle;
+  background: #888888;
   padding: 0 0.3em;
   font-size: 14px;
+  border-radius: 5px;
 }

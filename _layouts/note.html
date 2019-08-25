@@ -13,12 +13,10 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('#tree').ztree_toc({
-          _header_nodes: [{ id:1, pId:0, name:"目录",open:true}],
+          _header_nodes: [{ id:1, pId:0, name:"大纲",open:true}],
           is_expand_all: false,
         });
       });
-    </script>
-    <script type="text/javascript">
       function HideCate(){
         if(window.parent.blog.cols == "*,310") {
           window.parent.blog.cols = "*,0";
