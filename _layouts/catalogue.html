@@ -5,15 +5,15 @@
     <link href="../css/blog.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../plugins/jquery-1.4.4.min.js"></script>
     <script type="text/javascript">
-      function open_catalogue(cata_id) {
-        var cate_name = $('a.'+cata_id).text();
+      function open_catalogue(obj, cata_id) {
+        var cata_name = $(obj).text().slice(1);
         if ($('#'+cata_id).is(":hidden")) {
-          $('a.'+cata_id).attr('target', 'main');
-          $('a.'+cata_id).text("▼" + cate_name);
+          $(obj).attr('target', 'main');
+          $(obj).text("▼" + cata_name);
           $('#'+cata_id).show();
         } else {
-          $('a.'+cata_id).attr('target', '_self');
-          $('a.'+cata_id).text("►" + cate_name);
+          $(obj).attr('target', '_self');
+          $(obj).text("►" + cata_name);
           $('#'+cata_id).hide();
         }
       }
@@ -23,7 +23,7 @@
     {% for catalogue in site.data.blog.catalogue %}
     <br/>
     <div class="cata1">
-      <a class="cate1" href="#" onclick="open_catalogue('{{ catalogue.id }}')" class="{{ catalogue.id }}">►{{ catalogue.name }}</a>
+      <a class="cate1" href="#" onclick="open_catalogue(this, '{{ catalogue.id }}')" class="{{ catalogue.id }}">►{{ catalogue.name }}</a>
     </div>
     <div id="{{ catalogue.id }}" class="cata2" style="display:none">
       {% for blog in catalogue.blog %}
