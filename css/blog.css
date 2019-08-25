@@ -27,15 +27,13 @@ a:active { text-decoration:overline; color:#F00; }
 .intro-job { font-size: 18px; }
 
 .cata1 {
+  cursor: pointer;
   color: #CD0021;
   font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
   text-rendering: optimizeLegibility;
   font-size: 20px;
   height: 30px;
 }
-.cata1 a { color:#CD0021; }
-.cata1 a:visited { color:#CD0021; }
-.cata1 a:hover { text-decoration:none; }
 
 .cata2 {
   font-family: "Segeo UI Mono", "Microsoft YaHei", Sans;
