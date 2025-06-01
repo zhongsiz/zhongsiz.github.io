@@ -25,6 +25,7 @@
       "name": "系统工具",
       "blog": [
         { "title": "Vim",               "id": "vim" },
+        { "title": "Fzf",               "id": "fzf" },
         { "title": "Awk",               "id": "awk" },
         { "title": "Sed",               "id": "sed" },
         { "title": "Tmux",              "id": "tmux" },
