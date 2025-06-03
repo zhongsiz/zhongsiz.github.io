@@ -1,10 +1,9 @@
 ---
 layout: note
 title: Tmux
-subtitle: 创建时间 2015-10-26 00:00:00, 最后更新 2018-10-07 14:02:15
 ---
 
-## Tmux
+# Tmux
 1. Session
     * Create
         * `tmux new-session -s "sessionname"`

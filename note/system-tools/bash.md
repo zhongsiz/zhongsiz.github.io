@@ -1,12 +1,11 @@
 ---
 layout: note
 title: Bash脚本
-subtitle: 创建时间 2015-09-30 00:00:00, 最后更新 2019-03-17 23:52:57
 ---
 
     #!/usr/bash
 
-## Basic Usage
+# Basic Usage
 * Variable:
     * Assignment`=`: no spaces around
     * Case-sensitive
@@ -65,7 +64,7 @@ subtitle: 创建时间 2015-09-30 00:00:00, 最后更新 2019-03-17 23:52:57
     * Run command background: `ls / -R | wc -l &`
         * `&` run in background
 
-### Syntax
+## Syntax
 * if
     condition is a `test expression` OR `[ expression ]`
 
@@ -119,16 +118,16 @@ subtitle: 创建时间 2015-09-30 00:00:00, 最后更新 2019-03-17 23:52:57
             }
     2. parameter: $* $1 $2 $@ $#
 
-## Useful utility
+# Useful utility
 
-### getopt command
+## getopt command
 `getopts {opstring} {variable}`
 
 1. opstring-n:a:s:w:d , d don't have argument.
 2. place next option in the variable.
 3. for illegal option, place ? into variable
 
-### test command
+## test command
 test works with:
 
 1. Integer
@@ -154,7 +153,7 @@ test works with:
         2. `expression1 -a expression2`-Logical AND
         3. `expression1 -o expression2`-Logical OR
 
-### Others
+## Others
 * `cut` --utility-selecting portion of a file
     `cut -f2 sname` --show second column of the file `sname`
 * `paste` --put line together
@@ -188,7 +187,7 @@ test works with:
     * trap [action condition ...]
     * trap - condition: reset
 
-## 正则表达式
+# 正则表达式
 * start `ex` editor
     * `ex {filename}`
 * Basic operator

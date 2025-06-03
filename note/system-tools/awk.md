@@ -1,7 +1,6 @@
 ---
 layout: note
 title: Awk
-subtitle: 创建时间 2015-11-16 00:00:00, 最后更新 2019-03-17 23:52:52
 ---
 
     awk '/good/{print $1 " " $3}' inventory

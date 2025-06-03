@@ -13,25 +13,33 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('#tree').ztree_toc({
-          _header_nodes: [{ id:1, pId:0, name:"大纲",open:true}],
-          is_expand_all: false,
+          is_expand_all: true,
         });
       });
-      function HideCate(){
-        if(window.parent.blog.cols == "*,310") {
-          window.parent.blog.cols = "*,0";
-          document.getElementById("catabtn").value="显示分类";
+      function hide_toc() {
+        if($("#td_toc").is(":hidden")) {
+          document.getElementById("btn_toc").value="隐藏大纲";
+          $("#td_toc").show();
         } else {
-          window.parent.blog.cols = "*,310";
-          document.getElementById("catabtn").value="隐藏分类";
+          document.getElementById("btn_toc").value="显示大纲";
+          $("#td_toc").hide();
         }
+      }
+      function hide_cate() {
+ 					  if(window.parent.blog.cols == "*,310") {
+							   window.parent.blog.cols = "*,0";
+							   document.getElementById("btn_cate").value="显示分类";
+							 } else {
+							   window.parent.blog.cols = "*,310";
+							   document.getElementById("btn_cate").value="隐藏分类";
+							 }
       }
     </script>
   </head>
   <body>
     <table border=0 height=600px align=left>
       <tr>
-        <td width=260px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
+        <td id='td_toc'  width=260px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
           <ul id="tree" class="ztree">
           </ul>
         </td>
@@ -39,7 +47,8 @@
           <div id="content">
             <div class="title">{{ page.title }}</div>
             <div class="subtitle">{{ page.subtitle }}
-              <input type="button" id="catabtn" onclick="HideCate()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏分类"/>
+              <input type="button" id="btn_toc" onclick="hide_toc()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏大纲"/>
+              <input type="button" id="btn_cate" onclick="hide_cate()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏分类"/>
             </div>
             <hr>
             {{ content | replace: '<li>[ ]', '<li><input type="checkbox" disabled>' | replace: '<li>[x]', '<li><input type="checkbox" disabled checked>' }}

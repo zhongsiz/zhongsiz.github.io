@@ -1,24 +1,23 @@
 ---
 layout: note
 title: 排序算法
-subtitle: 创建时间 2014-12-20 00:00:00, 最后更新 2019-03-30 09:57:27
 ---
 
-## 一、基本性质总结
+# 一、基本性质总结
 
-### 1.1 稳定性
+## 1.1 稳定性
 选择排序、快速排序、希尔排序、堆排序 是**不稳定排序**。
 
 冒泡排序、插入排序、归并排序、基数排序 是**稳定排序**。
 
-### 1.2 时间/空间复杂度
+## 1.2 时间/空间复杂度
 ![sort algorithm](img/sort.jpg)
 
-## 二、各个排序总结
+# 二、各个排序总结
 
 [完整源码在这里](sourcecode/sort/basicsort.cpp)
 
-### 2.1 冒泡排序（BubbleSort）
+## 2.1 冒泡排序（BubbleSort）
 
 **思想**：交换相邻元素，将最大元素移到后面。
 
@@ -37,7 +36,7 @@ int bubbleSort(int *arr, int len) {
 }
 ```
 
-### 2.2 选择排序（SelectSort）
+## 2.2 选择排序（SelectSort）
 
 **思想**：选择排序是给每个位置选择当前元素最小/最大的元素。
 
@@ -58,7 +57,7 @@ int selectSort(int *arr, int len) {
 }
 ```
 
-### 2.3 插入排序（InsertSort）
+## 2.3 插入排序（InsertSort）
 
 **思想**：在有序序列中插入新的序列。
 
@@ -76,7 +75,7 @@ int insertSort(int *arr, int len) {
 }
 ```
 
-### 2.4 归并排序（MergeSort）
+## 2.4 归并排序（MergeSort）
 
 **思想**：分治法，处理子数组，合并两个排好序的子数组
 
@@ -109,7 +108,7 @@ int mergeSort(int *arr, int s, int e) {
 }
 ```
 
-### 2.5 基数排序（RadixSort）
+## 2.5 基数排序（RadixSort）
 
 **思想**：依次按个位/十位/百位...排序。
 
@@ -134,7 +133,7 @@ int radixSort(int *arr, int len) {
 }
 ```
 
-### 2.6 希尔排序（ShellSort）
+## 2.6 希尔排序（ShellSort）
 
 **思想**：不同增量的插入排序，最后一个增量为1。
 
@@ -156,7 +155,7 @@ int shellSort(int *arr, int len) {
 }
 ```
 
-### 2.7 堆排序（HeapSort）
+## 2.7 堆排序（HeapSort）
 
 **思想**：建堆，每次将根元素和尾元素交换，堆大小减少一，然后调整堆。
 
@@ -191,16 +190,16 @@ int heapSort(int *arr, int len) {
 }
 ```
 
-### 2.8 快速排序（QuickSort）
+## 2.8 快速排序（QuickSort）
 
 快速排序是不稳定排序平均时间复杂度为\\(O(nlgn)\\)。
 
-#### 思想
+### 思想
 
 1. 数组A[s...e]划分为A[s...q-1]和A[q+1...e],使得A[s...q-1]都小于等于A[q]并且A[q+1...e]都大于等于A[q]。下标q也在划分中确定。
 2. 递归调用，对字数组A[s...q-1]和A[q+1...e]进行排序。
 
-#### 实现
+### 实现
 主程序如下：
 
 ```cpp
@@ -215,7 +214,7 @@ void qsort(int* A, int s, int e) {
 
 划分可能有多种方法。
 
-#### 统计小于key值的划分
+### 统计小于key值的划分
 选取最后一个元素为key值。遍历数组，用i标记当前位置小于key值的最大下标。对于遍历到的每个小于key的值，让它和i+1(首个大于key的元素)交换，代码如下：
 
 ```cpp
@@ -232,7 +231,7 @@ int partition(int* A, int s, int e) {
 }
 ```
 
-#### 双指针移动方法
+### 双指针移动方法
 选取首元素为key值， low，hig分别指向数组头尾。
 
 1. 从hig开始寻找首个小于key的值，填充到low位置

@@ -1,19 +1,18 @@
 ---
 layout: note
 title: Vim
-subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-08-17 21:54:42
 ---
 
-## 参考
+# 参考
 * [Practice Vim](https://book.douban.com/subject/10599776/)
 
-## vim 命令行
+# vim 命令行
 
-### 打开多个文件
+## 打开多个文件
 + 竖直分割。`-On`
 + 水平分割。`-on`
 
-## 移动
+# 移动
 * 上下左右。 `k`, `j`, `h`, `l`, 行内(wrap)`gk`, `gj`
 * 行内。首尾：`0`, `$`, 非空首尾：`^`, `g_`
 * 单词。word: `w`, `e`, `b`
@@ -22,41 +21,41 @@ subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-08-17 21:54:42
 * 匹配。
     * `%`。 匹配`{}`
 
-## 编辑
+# 编辑
 
-### 插入
+## 插入
 
-#### 行首非空。`I`
-#### 行尾非空。`A`
+### 行首非空。`I`
+### 行尾非空。`A`
 
-### 格式化
+## 格式化
 + `=`: indent
 
-## 窗口
+# 窗口
 * 分割。`sp`, `vs`
 * 跳转。映射`<C-w>h/j/k/l`到`<C-h/j/k/l>`
 * 最大化/恢复。映射`<C-w>m`到`<C-w>_<C-w>|` ，恢复`<C-w>=`
 
-## Insert模式
-### 删除内容
+# Insert模式
+## 删除内容
 * `<C-h>` -- 一个字符
 * `<C-w>` -- 一个单词
 * `<C-u>` -- 删除到开始
 
-### Insert模式到Normal模式
+## Insert模式到Normal模式
 * `Esc`
 * `C-[`
 * `C-o` -- Insert mode to Insert Normal mode
 
-### Insert Normal模式
+## Insert Normal模式
 * insert mode -> normal mode(run only one command) -> insert mode
 
-## 其他设置
-### 编码
+# 其他设置
+## 编码
 * 显示中文：`set fileencodings=utf-8,gb2312`
 
-## 寄存器
-#### Tip60 Vim寄存器
+# 寄存器
+### Tip60 Vim寄存器
 * 查看寄存器内容：`:reg "x`
 * 插入模式使用寄存器：`<C-r>x`
 * 寄存器种类
@@ -74,11 +73,11 @@ subtitle: 创建时间 2016-03-14 00:00:00, 最后更新 2019-08-17 21:54:42
         * 最后的命令：`":`
         * 最后的搜索：`"/`
 
-## Tip61 Visual模式下寄存器行为
+# Tip61 Visual模式下寄存器行为
 * 可视模式下`p`会读取和**改变**寄存器
 * 设置和跳转mark: `mx`, `\`x`
 
-## Tip63 和系统剪切板交互
+# Tip63 和系统剪切板交互
 * 剪切板寄存器
 * paste 选项
     * `:set paste!`

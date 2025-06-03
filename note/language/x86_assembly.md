@@ -1,13 +1,12 @@
 ---
 layout: note
 title: x86汇编
-subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
 ---
 
-#### 参考
+# 参考
 * CSAPP第3章
 
-### AT&T语法和Intel语法
+# AT&T语法和Intel语法
 * `AT&T` -- GNU Assembly(GAS)
     * 助记符 src, dest
     * 后缀(操作数大小) -- "b", "s", "w", "l", "q", "t"
@@ -20,7 +19,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
     * 助记符 dest, src
     * 无前后缀
 
-### 寄存器
+# 寄存器
 * 常用寄存器: eax, ecx, edx, ebx, esi, edi, esp, ebp
     * 说明
         * 前六个可以称为通用寄存器
@@ -28,7 +27,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
 * 控制寄存器
     * CF(carry flag), ZF(zero flag), SF(sign flag), OF(overflow flag)
 
-### 指令
+# 指令
 * 操作数形式
     ![Operand Form](img/Operand.png)
 
@@ -44,25 +43,25 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
         * 间接跳转
     * condition mov指令(有利于cpu流水线): cmove, cmovs, cmovl, cmova, cmovb
 
-### 基本组成部分
+# 基本组成部分
 
-#### 基本元素
+## 基本元素
 * 汇编器伪指令: `.file .text`
 * 指令
 
-#### 汇编文件组成
+## 汇编文件组成
 * Segments(段)
     * code
     * data
     * stack
 
-#### 生成汇编
+## 生成汇编
 * gcc: `gcc -S`
 * 反汇编 `objdump -d`
 
-### 基本结构汇编生成
+# 基本结构汇编生成
 
-#### if-else
+## if-else
 
     if (test-expr)        |    t = test-expr;
         then-statement    |    if (!t)
@@ -73,7 +72,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
                           |     else-statement
                           |  done:
 
-#### do-while
+## do-while
 
     do                    |  loop:
         body-statement    |     body-statement
@@ -81,7 +80,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
                           |     if (t)
                           |         goto loop;
 
-#### while循环
+## while循环
 转换成do-while
 
     while (test-expr)     |    if (!test-expr)         |    t = test-expr;
@@ -94,7 +93,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
                                                        |         goto loop
                                                        |  done:
 
-#### for循环
+## for循环
 转换成while
 
     for (init-expr; test-expr; update-expr)    |    init-expr;
@@ -103,20 +102,20 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
                                                |        update-expr;
                                                |    }
 
-#### condition move
+## condition move
 
     v = test-expr ? then-expr : else-expr;    |    vt = then-expr;
                                               |    v = else-expr;
                                               |    t = test-expr;
                                               |    if (t) v = vt;
 
-#### switch语句
+## switch语句
 根据case数目和范围选择jump table实现
 
 * jump table在rodata中声明, 存放case指令入口
 * 通过间接跳转进入case对应代码
 
-#### 数组
+## 数组
 通过base, index, scalar返回元素
 
     int E[i]    |    # E <-- %edx, i <-- %ecx
@@ -138,19 +137,19 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
 * 动态分配多维数组需要在运行时获得数组维数
     * Register spilling: 寄存器不足是需要将变量(只读)存放在内存中
 
-#### struct和union
+## struct和union
 通过offset访问变量
 
-#### 对齐
+## 对齐
 简化处理器和内存的接口：`.align 4`
 
-#### 浮点数
+## 浮点数
 * x87
 * sse
 
-## 栈-Stack
+# 栈-Stack
 
-#### 参考
+## 参考
 * [Wikipedia Call stack](https://en.wikipedia.org/wiki/Call_stack)
 * CSAPP
 * [GCC中栈和calling convention宏设置](https://gcc.gnu.org/onlinedocs/gccint/Stack-and-Calling.html#Stack-and-Calling)
@@ -165,7 +164,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
     * 入栈: `push %rbp`, 相当于 `subq $8, %rsp` 和 `movq %rbp, (%rsp)`
     * 出栈: `pop %rbp`, 相当于 `movq (%rsp), %rbp` 和 `addq $8, %rsp`
 
-### 保护栈
+## 保护栈
 函数调用前需要保护caller的帧栈，返回时恢复.
 
     pushq %rbp
@@ -175,7 +174,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
     leave # 相当于 movq %rbp, %rsp 和 pop %rbp
     retq # 控制流移到栈顶的返回地址(由callq指令压入), %rip <- pop()
 
-### 示例
+## 示例
 * 代码: `fn1(arg) { fn2(p1, p2); }`
 * 调用过程
     * 参数 p2 和 p1 压入栈(实际参数较少时会通过寄存器传递)
@@ -208,7 +207,7 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
         |-------------------------------|   <---  Stack Pointer
                top of stack
 
-### 栈大小
+## 栈大小
 * 进程最大栈空间(KB, 如8196KB=8MB)：`ulimit -s`
 * 进程最大栈空间sys/resource.h(Byte): `getrlimit(RLIMIT_STACK, &rlim)`
 * 线程：默认2MB, 最小是16KB(PTHREAD_STACK_MIN)
@@ -217,9 +216,9 @@ subtitle: 创建时间 2016-01-28 00:00:00, 最后更新 2019-03-17 23:51:55
         if the RLIMIT_STACK soft resource limit at the time the program started has any value other than "unlimited",
         then it determines the default stack size of new threads.
 
-## Calling Conversion(AMD64 ABI)
+# Calling Conversion(AMD64 ABI)
 
-### 寄存器使用
+## 寄存器使用
 * Callee Save寄存器: Callee在返回前必须恢复原值, RBX RBP R12-R15, 其他寄存器均可以任意使用.
 * Caller Save寄存器: Callee可改变
     * 传参: 整形参数使用RDI RSI, RDX, RCX, R8, R9, 浮点型参数使用XMM0-7.

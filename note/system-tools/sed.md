@@ -1,7 +1,6 @@
 ---
 layout: note
 title: GNU Sed
-subtitle: 创建时间 2015-09-30 00:00:00, 最后更新 2019-03-30 23:10:33
 ---
 
 ~~~
@@ -9,12 +8,12 @@ subtitle: 创建时间 2015-09-30 00:00:00, 最后更新 2019-03-30 23:10:33
 sed 's/name/steve/g' intro.md
 ~~~
 
-### Useful Resource
+# Useful Resource
 * [sed Introduction and Tutorial](http://www.grymoire.com/Unix/Sed.html#uh-40)
 * [sed Home Page](https://www.gnu.org/software/sed/manual/sed.html)
 * [sed Regular Expression](https://www.gnu.org/software/sed/manual/sed.html#Regular-Expressions)
 
-## Basic Syntax
+# Basic Syntax
 * Syntax:
 
         sed -option 'general expression' [data-file]
