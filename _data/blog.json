@@ -1,13 +1,6 @@
 {
   "catalogue": [
     {
-      "id": "blackbird",
-      "name": "黑鸟股票",
-      "blog": [
-        { "title": "BlackBird简介", "id": "blackbird-introduction" }
-      ]
-    },
-    {
       "id": "language",
       "name": "程序设计",
       "blog": [

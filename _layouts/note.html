@@ -13,8 +13,13 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('#tree').ztree_toc({
+          _header_nodes: [{ id:1, pId:0, name:"大纲", open:true}],
           is_expand_all: true,
         });
+								if (window.top == window.self) {
+										$('#btn_opentab').hide();
+										$('#btn_cate').hide();
+								}
       });
       function hide_toc() {
         if($("#td_toc").is(":hidden")) {
@@ -34,6 +39,10 @@
 							   document.getElementById("btn_cate").value="隐藏分类";
 							 }
       }
+      function open_tab() {
+						  var currentUrl = window.location.href;
+        window.open(currentUrl, '_blank');
+      }
     </script>
   </head>
   <body>
@@ -46,8 +55,10 @@
         <td align=left valign=top>
           <div id="content">
             <div class="title">{{ page.title }}</div>
+            <div></div>
             <div class="subtitle">{{ page.subtitle }}
               <input type="button" id="btn_toc" onclick="hide_toc()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏大纲"/>
+              <input type="button" id="btn_opentab" onclick="open_tab()" style="color:#aaa;border-radius: 20px;outline:none;" value="新标签页打开"/>
               <input type="button" id="btn_cate" onclick="hide_cate()" style="color:#aaa;border-radius: 20px;outline:none;" value="隐藏分类"/>
             </div>
             <hr>
